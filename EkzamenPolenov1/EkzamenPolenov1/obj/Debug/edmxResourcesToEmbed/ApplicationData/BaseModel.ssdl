@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BDPolenovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TovarDecoration">
+    <Key>
+      <PropertyRef Name="Артикул" />
+    </Key>
+    <Property Name="Артикул" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Наименование " Type="nvarchar" MaxLength="255" />
+    <Property Name="Единица измерения" Type="nvarchar" MaxLength="255" />
+    <Property Name="Стоимость" Type="float" />
+    <Property Name="Размер максимально возможной скидки" Type="float" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="255" />
+    <Property Name="Поставщик" Type="nvarchar" MaxLength="255" />
+    <Property Name="Категория товара" Type="nvarchar" MaxLength="255" />
+    <Property Name="Действующая скидка" Type="float" />
+    <Property Name="Кол-во на складе" Type="float" />
+    <Property Name="Описание" Type="nvarchar" MaxLength="255" />
+    <Property Name="Изображение" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Kod_Roli" />
+    </Key>
+    <Property Name="Kod_Roli" Type="int" Nullable="false" />
+    <Property Name="Rol" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Фамилия" Type="nvarchar" MaxLength="255" />
+    <Property Name="Имя, отчество" Type="nvarchar" MaxLength="255" />
+    <Property Name="Login" Type="nvarchar" MaxLength="255" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="Role" Type="int" />
+  </EntityType>
+  <Association Name="FK_Users_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Kod_Roli" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BDPolenovModelContainer">
+    <EntitySet Name="TovarDecoration" EntityType="Self.TovarDecoration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Users_UserRole" Association="Self.FK_Users_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

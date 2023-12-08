@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BDPolenovModelContainer" CdmEntityContainer="BDPolenovEntities1">
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="BDPolenovModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Kod_Roli" ColumnName="Kod_Roli" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BDPolenovModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя__отчество" ColumnName="Имя, отчество" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TovarDecoration">
+      <EntityTypeMapping TypeName="BDPolenovModel.TovarDecoration">
+        <MappingFragment StoreEntitySet="TovarDecoration">
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+          <ScalarProperty Name="Кол_во_на_складе" ColumnName="Кол-во на складе" />
+          <ScalarProperty Name="Действующая_скидка" ColumnName="Действующая скидка" />
+          <ScalarProperty Name="Категория_товара" ColumnName="Категория товара" />
+          <ScalarProperty Name="Поставщик" ColumnName="Поставщик" />
+          <ScalarProperty Name="Производитель" ColumnName="Производитель" />
+          <ScalarProperty Name="Размер_максимально_возможной_скидки" ColumnName="Размер максимально возможной скидки" />
+          <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
+          <ScalarProperty Name="Единица_измерения" ColumnName="Единица измерения" />
+          <ScalarProperty Name="Наименование_" ColumnName="Наименование " />
+          <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
